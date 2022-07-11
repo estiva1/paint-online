@@ -61,9 +61,9 @@ export default class Rectangular extends Tool {
 
   static staticDraw(ctx, x, y, w, h, color) {
     ctx.fillStyle = color;
-    this.ctx.beginPath();
-    this.ctx.rect(x, y, w, h);
-    this.ctx.fill();
-    this.ctx.stroke();
+    ctx.beginPath();
+    ctx.rect(x, y, w, h);
+    ctx.fill();
+    ctx.stroke();
   }
 }

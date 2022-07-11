@@ -18,30 +18,30 @@ const Canvas = observer(() => {
 
   useEffect(() => {
     canvasState.setCanvas(canvasRef.current);
+    let ctx = canvasRef.current.getContext("2d");
     axios
       .get(`http://localhost:5000/image?id=${params.id}`)
       .then((response) => {
         const img = new Image();
         img.src = response.data;
         img.onload = () => {
-          this.ctx.clearRect(
+          ctx.clearRect(
             0,
             0,
             canvasRef.current.width,
             canvasRef.current.height
           );
-          this.ctx.drawImage(
+          ctx.drawImage(
             img,
             0,
             0,
             canvasRef.current.width,
             canvasRef.current.height
           );
-          this.ctx.stroke();
         };
       });
   }, []);
-
+  
   useEffect(() => {
     if (canvasState.username) {
       const socket = new WebSocket("ws://localhost:5000/"); //localhost

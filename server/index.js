@@ -12,8 +12,8 @@ app.use(cors());
 app.use(express.json());
 
 app.ws("/", (ws, req) => {
-  console.log("Connected");
-  ws.send("You have successfully connected");
+//   console.log("Connected");
+//   ws.send("You have successfully connected");
   ws.on("message", (msg) => {
     msg = JSON.parse(msg);
     switch (msg.method) {
