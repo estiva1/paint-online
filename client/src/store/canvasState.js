@@ -2,12 +2,26 @@ import { makeAutoObservable } from "mobx";
 
 class CanvasState {
   canvas = null;
-
+  socket = null;
+  sessionid = null;
   undoList = [];
   redoList = [];
+  username = "";
 
   constructor() {
     makeAutoObservable(this);
+  }
+
+  setSessionId(id) {
+    this.sessionid = id;
+  }
+
+  setSocket(socket) {
+    this.socket = socket;
+  }
+
+  setUsername(username) {
+    this.username = username;
   }
 
   setCanvas(canvas) {
@@ -23,7 +37,7 @@ class CanvasState {
   }
 
   undo() {
-    let ctx = this.canvas.getContext('2d');
+    let ctx = this.canvas.getContext("2d");
     if (this.undoList.length > 0) {
       let dataUrl = this.undoList.pop();
       this.redoList.push(this.canvas.toDataURL());
@@ -32,7 +46,7 @@ class CanvasState {
       img.onload = () => {
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         ctx.drawImage(img, 0, 0, this.canvas.width, this.canvas.height);
-      }
+      };
       //console.log("undo");
     } else {
       ctx.clearRect(0, 0, this.canvas.width, this.canvas.heigth);

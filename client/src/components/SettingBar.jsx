@@ -14,7 +14,7 @@ const SettingBar = () => {
         max={20}
         onChange={(e) => toolState.setLineWidth(e.target.value)}
       />
-      <label htmlFor="stroke-color">Stroke Color</label>
+      <label htmlFor="stroke-color">Stroke Color </label>
       <input
         type="color"
         id="stroke-color"
