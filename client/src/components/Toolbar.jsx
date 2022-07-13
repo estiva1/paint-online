@@ -24,6 +24,11 @@ const Toolbar = () => {
     document.body.removeChild(a);
   };
 
+  const reset = () => {
+    // const context = canvasState.canvas.getContext("2d");
+    // context.clearRect(0, 0, canvas.width, canvas.height);
+  };
+
   return (
     <div className="toolbar">
       <button
@@ -73,6 +78,7 @@ const Toolbar = () => {
         onClick={() => canvasState.redo()}
       />
       <button className="toolbar__btn save" onClick={() => download()} />
+      <button className="toolbar__btn reset" onClick={() => reset()} />
     </div>
   );
 };

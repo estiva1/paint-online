@@ -25,6 +25,7 @@ export default class Rectangular extends Tool {
           width: this.width,
           height: this.height,
           color: this.ctx.fillStyle,
+          stroke: this.ctx.strokeStyle,
         },
       })
     );
@@ -59,8 +60,9 @@ export default class Rectangular extends Tool {
     };
   }
 
-  static staticDraw(ctx, x, y, w, h, color) {
+  static staticDraw(ctx, x, y, w, h, color, stroke) {
     ctx.fillStyle = color;
+    ctx.strokeStyle = stroke;
     ctx.beginPath();
     ctx.rect(x, y, w, h);
     ctx.fill();

@@ -41,7 +41,7 @@ const Canvas = observer(() => {
         };
       });
   }, []);
-  
+
   useEffect(() => {
     if (canvasState.username) {
       const socket = new WebSocket("ws://localhost:5000/"); //localhost
@@ -86,7 +86,8 @@ const Canvas = observer(() => {
           figure.y,
           figure.width,
           figure.height,
-          figure.color
+          figure.color,
+          figure.stroke
         );
         break;
       case "finish":
